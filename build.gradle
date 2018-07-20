@@ -1,38 +1,37 @@
 buildscript {
-    ext.kotlin_version = '1.2.31'
-
+    ext {
+        kotlinVersion = '1.2.41'
+        springBootVersion = '1.5.14.RELEASE'
+    }
     repositories {
         mavenCentral()
     }
     dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath "com.fasterxml.jackson.core:jackson-databind:2.9.5"
-        classpath "org.springframework:spring-webmvc:5.0.6.RELEASE"
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}")
+        classpath("org.jetbrains.kotlin:kotlin-allopen:${kotlinVersion}")
     }
 }
 
-group 'org.oleggalimov'
-version '1'
-
-apply plugin: 'war'
 apply plugin: 'kotlin'
+apply plugin: 'kotlin-spring'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
 
+group = 'org.oleggalimov'
+version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
+
 
 repositories {
     mavenCentral()
 }
 
-dependencies {
-    compile "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-    compile "org.springframework:spring-webmvc:5.0.6.RELEASE"
-    compile 'org.jetbrains.kotlin:kotlin-reflect:$kotlin_version'
-    testCompile group: 'junit', name: 'junit', version: '4.12'
-}
 
-compileKotlin {
-    kotlinOptions.jvmTarget = "1.8"
-}
-compileTestKotlin {
-    kotlinOptions.jvmTarget = "1.8"
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+    compile('org.springframework.boot:spring-boot-starter-web')
+    compile('com.fasterxml.jackson.module:jackson-module-kotlin')
+    compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}")
+    compile("org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}")
 }
