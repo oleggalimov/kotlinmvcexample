@@ -1,21 +1,20 @@
 buildscript {
     ext {
         kotlinVersion = '1.2.41'
-        springBootVersion = '1.5.14.RELEASE'
+        springVersion = '5.0.6.RELEASE'
     }
     repositories {
         mavenCentral()
     }
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}")
-        classpath("org.jetbrains.kotlin:kotlin-allopen:${kotlinVersion}")
+        classpath("org.springframework:spring-webmvc:${springVersion}")
+        classpath("com.fasterxml.jackson.core:jackson-databind:2.9.5")
+
     }
 }
 
 apply plugin: 'kotlin'
-apply plugin: 'kotlin-spring'
-apply plugin: 'org.springframework.boot'
 apply plugin: 'war'
 
 group = 'org.oleggalimov'
@@ -29,10 +28,6 @@ repositories {
 
 
 dependencies {
-    compile('org.springframework.boot:spring-boot-starter-thymeleaf')
-    compile('org.springframework.boot:spring-boot-starter-web')
-    compile('com.fasterxml.jackson.module:jackson-module-kotlin')
-    compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}")
-    compile("org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}")
-    providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+    compile("org.springframework:spring-webmvc:${springVersion}")
+    compile("com.fasterxml.jackson.core:jackson-databind:2.9.5")
 }

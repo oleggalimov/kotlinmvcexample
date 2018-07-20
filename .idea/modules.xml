@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotlinspringmvc.iml" filepath="$PROJECT_DIR$/.idea/modules/kotlinspringmvc.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotlinspringmvc_main.iml" filepath="$PROJECT_DIR$/.idea/modules/kotlinspringmvc_main.iml" group="kotlinspringmvc" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotlinspringmvc_test.iml" filepath="$PROJECT_DIR$/.idea/modules/kotlinspringmvc_test.iml" group="kotlinspringmvc" />
     </modules>
   </component>
 </project>
